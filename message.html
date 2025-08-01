@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Special Message</title>
+  <style>
+    body {
+      margin: 0; height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      background: linear-gradient(135deg, #FFD194, #D1913C);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden; text-align: center; color: white;
+    }
+    h1 { font-size: 2em; animation: fadeIn 2s ease-in-out; }
+    p { font-size: 1.2em; margin-bottom: 30px; max-width: 80%; }
+    a, button {
+      text-decoration: none; padding: 12px 20px; margin: 10px;
+      font-size: 1em; border: none; border-radius: 25px;
+      cursor: pointer; background: white; color: #b36b00; transition: 0.3s ease;
+    }
+    a:hover, button:hover { transform: scale(1.1); background: #ffe6b3; }
+    #musicBtn {
+      position: fixed; top: 15px; right: 15px; padding: 8px 12px;
+      background: rgba(255,255,255,0.7); border: none; border-radius: 20px; cursor: pointer;
+    }
+    @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+  </style>
+</head>
+<body>
+  <h1>Special Note</h1>
+  <p>Msoo, thank you for being more than a cousin; you're family in every way that matters. 
+  Wishing you a joyful and love-filled Girlfriend’s Day!</p>
+  <a href="thanks.html">Thank You Page</a>
+  <a href="index.html">Back Home</a>
+
+  <button id="musicBtn">Play Music</button>
+  <audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/21/audio_57d12c03a5.mp3?filename=acoustic-guitar-background-14375.mp3" type="audio/mp3">
+  </audio>
+  <script>
+    const audio = document.getElementById('bgMusic');
+    const btn = document.getElementById('musicBtn');
+    btn.onclick = function() {
+      if(audio.paused) {
+        audio.play();
+        btn.textContent = 'Mute';
+      } else if(!audio.muted) {
+        audio.muted = true;
+        btn.textContent = 'Unmute';
+      } else {
+        audio.muted = false;
+        btn.textContent = 'Mute';
+      }
+    };
+  </script>
+</body>
+</html>
